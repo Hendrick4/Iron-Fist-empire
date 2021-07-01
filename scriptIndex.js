@@ -30,6 +30,7 @@ $("input:submit").click((e) => {
                 if (res.success) {
                     $("#check").html("Connexion réussie! redirection vers le site....");
                 } else {
+                    $("#check").css("color", "darkred");
                     $("#check").html("Identifiant ou mot de passe incorrect.");
                 }
             }

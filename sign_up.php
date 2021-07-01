@@ -2,7 +2,7 @@
 
 require_once('connect.php');
 require_once('utils.php');
-require_once('../fonctions.php');
+//?require_once('../fonctions.php');
 $verif = true;
 $infos = ['firstname','lastname','birthdate','email','nickname','password'];
 foreach($infos as $info) {
@@ -29,8 +29,15 @@ if($info == 'password'){
         die();
     }
 }
-$pwd = password_hash($method['password'], PASSWORD_DEFAULT);
-$sql = "INSERT INTO users(firstname, lastname, birthdate, email, nickname, pwd) VALUES ('{$method['firstname']}','{$method['lastname']}','{$method['birthdate']}','{$method['email']}', '{$method['nickname']}', '{$pwd}')";
+$secuFName = mysqli_real_escape_string($db, $method['firstname']);
+$secuLName = mysqli_real_escape_string($db, $method['lastname']);
+$secuBDate = mysqli_real_escape_string($db, $method['birthdate']);
+$secuMail = mysqli_real_escape_string($db, $method['email']);
+$secuPseudo = mysqli_real_escape_string($db, $method['nickname']);
+$secuPWD = mysqli_real_escape_string($db, $method['password']);
+
+$pwd = password_hash($secuPWD, PASSWORD_DEFAULT);
+$sql = "INSERT INTO users(firstname, lastname, birthdate, email, nickname, pwd) VALUES ('$secuFName','$secuLName','$secuBDate','$secuMail', '$secuPseudo', '{$pwd}')";
 $res = $db->query($sql);
 //!$_SESSION['user_tag'] = 
 echo json_encode(["success" => true]);
