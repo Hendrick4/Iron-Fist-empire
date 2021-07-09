@@ -16,15 +16,17 @@ $("button").click((e) => {
 })
 $("#file-upload-button").click((e) => {
     e.preventDefault();
-    let filename = $(this).$("input:file").val();
+    const fd = new FormData();
+    const files = $("file")[0].files;
+
+    fd.append(files[0]);
 
     $.ajax({
         url: 'uploadArticle.php',
         type: 'POST',
-        data: {
-            filename
-        },
-        dataType: 'json',
+        data: fd,
+        contentType: false,
+        processData: false,
         success: (res, status) => {
             if (res.success) {
                 $("#status").html("Upload réussie!");

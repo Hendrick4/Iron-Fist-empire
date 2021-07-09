@@ -5,11 +5,12 @@ $("#connect").click((e) => {
         "<input type='text' name='pseudo' id='n_name'>" +
         "<label for='pwd'>Mot de passe:</label>" +
         "<input type='password' name='pwd' id='pwd'>" +
-        "<input type='submit'>" +
+        //! "<input type='submit' id='send'>" +
         "</form>";
-    $("form").html(form);
+    $("form").append(form);
+    $("#send").css("display", "block");
 });
-$("input:submit").click((e) => {
+$("#send").click((e) => {
     e.preventDefault();
     const pseudo = $("#n_name").val();
     const pwd = $("#pwd").val();
@@ -29,6 +30,7 @@ $("input:submit").click((e) => {
             success: (res, status) => {
                 if (res.success) {
                     $("#check").html("Connexion réussie! redirection vers le site....");
+                    window.location.replace('newspage.html');
                 } else {
                     $("#check").css("color", "darkred");
                     $("#check").html("Identifiant ou mot de passe incorrect.");
