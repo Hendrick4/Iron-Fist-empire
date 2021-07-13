@@ -14,12 +14,37 @@ $("button").click((e) => {
         $("#limit").html("Vous avez atteint la limite max d'images a insérer.");
     }
 })
+
+$.ajax({
+    url: 'uploadArticle.php',
+    type: 'GET',
+    data: {},
+    dataType: 'json',
+    success: (res, status) => {
+        let options = '';
+        if (res.success) {
+            res.games.forEach(game => {
+                options += "<option value='" + game.id_opus + "'>" + game.opus_name + "</option>";
+            })
+            $("select").append(options);
+        }
+    }
+})
+
 $("#file-upload-button").click((e) => {
     e.preventDefault();
     const fd = new FormData();
-    const files = $("file")[0].files;
+    const files = $("#file")[0].files;
+    const content = $("#content").val();
+    const title = $("#title").val();
+    const snippet = $("#snippet").val();
 
-    fd.append(files[0]);
+    fd.append('file', files[0]);
+    fd.append('title', title);
+    fd.append('content', content);
+    fd.append('snippet', snippet);
+    //const td = new FormData();
+    //td.append
 
     $.ajax({
         url: 'uploadArticle.php',
@@ -31,9 +56,9 @@ $("#file-upload-button").click((e) => {
             if (res.success) {
                 $("#status").html("Upload réussie!");
             } else {
+                $("#status").css("color", "red");
                 $("#status").html("Fichier au mauvais format. Veuillez réessayer.");
             }
         }
     })
-
 })
