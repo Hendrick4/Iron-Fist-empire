@@ -19,14 +19,14 @@
         <div id="profil">
 
         </div>
-        <button>Modifier les infos</button>
+        <button id="modif">Modifier les infos</button>
         <div id="prenom">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
                 <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
                 <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
               </svg>
             <label for="name">Prenom :</label>
-            <i><p id="firstname"></p></i>
+
         </div>
         <br>
         <hr>
@@ -36,7 +36,7 @@
                 <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
               </svg>
             <label for="surname">Nom de famille :</label>
-            <i><p id="lastname"></p></i>
+
         </div>
         <br>
         <hr>
@@ -46,21 +46,19 @@
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
               </svg>
             <label>Date de naissance :</label>
-            <i><p id="birthdate"></p></i>
+            <p id="birthdate"></p>
         </div>
         <br>
         <hr>
         <div id="mail">
             <img width="20px" src="https://img2.freepng.fr/20180511/rce/kisspng-email-computer-icons-symbol-icon-design-5af5e6c2cc6774.6579996315260648348372.jpg">
             <label for="email">Adresse mail :</label>
-            <i><p id="adMail"></p></i>
         </div>
         <br>
         <hr>
         <div id="pseudo">
             <img width="20px" src="https://www.pngix.com/pngfile/middle/148-1480582_tekken-mishima-zaibatsu-logo-hd-png-download.png">
             <label for="nickname">Pseudo :</label>
-            <i><p id="nickname"></p></i>
         </div>
         <br>
         <hr>
@@ -69,6 +67,7 @@
                 <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm0 5a1.5 1.5 0 0 1 .5 2.915l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99A1.5 1.5 0 0 1 8 5z"/>
               </svg>
             <label for="password">Mot de passe :</label>
+            <input type='submit' value='Modifier' id='send' style="display: none;">
         </div>
     </main>
     <footer>

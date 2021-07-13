@@ -4,29 +4,33 @@ let k = 0;
 let l = 0;
 let m = 0;
 
-
-$.ajax({
-    url: 'profile.php',
-    type: 'GET',
-    data: {
-        choice: 'afficher',
-        //!id
-    },
-    dataType: 'json',
-    success: (res, status) => {
-        let profil = '';
-        if (res.success) {
-            $("#firstname").val(res.user.firstname);
-            $("#lastname").val(res.user.lastname);
-            $("#nickname").val(res.user.nickname);
-            $("#email").val(res.user.email);
-            $("#pwd").val(res.user.pwd);
-            $("#birthdate").val(res.user.birthdate);
-            profil = "<img src='" + res.user.profilePic + "'>" +
-                "<h4>" + res.infos.firstname + " " + res.user.lastname + "</h4>";
+$("#modif").click((e) => {
+    e.preventDefault();
+    $("#send").css("display", "block");
+    $.ajax({
+        url: 'profile.php',
+        type: 'GET',
+        data: {
+            choice: 'afficher',
+            //!id
+        },
+        dataType: 'json',
+        success: (res, status) => {
+            let profil = '';
+            if (res.success) {
+                $("#firstname").val(res.user.firstname);
+                $("#lastname").val(res.user.lastname);
+                $("#nickname").val(res.user.nickname);
+                $("#email").val(res.user.email);
+                //!$("#pwd").val(res.user.pwd);
+                $("#birthdate").html(res.user.birthdate);
+                profil = "<img src='" + res.user.profilePic + "'>" +
+                    "<h4>" + res.user.firstname + " " + res.user.lastname + "</h4>";
+            }
+            $("#profile").append(profil);
         }
-        $("#profile").append(profil);
-    }
+    })
+
 })
 
 $("button").click(() => {
@@ -64,7 +68,6 @@ $("button").click(() => {
         let modif5 = "<div>" +
             "<input type='password' name='password' id='pwd'>" +
             "<br>" +
-            "<input type='submit' value='Modifier' id='send'>" +
             "</div>";
         $("#mdp").append(modif5);
     }
@@ -72,15 +75,15 @@ $("button").click(() => {
 
 $("#send").click((e) => {
     e.preventDefault();
-    const name = $("#firstname").val();
-    const surname = $("#lastname").val();
+    const firstname = $("#firstname").val();
+    const lastname = $("#lastname").val();
     const nickname = $("#nickname").val();
-    const mail = $("#email").val();
+    const email = $("#email").val();
     const pwd = $("#pwd").val();
     if (
-        name.trim() != '' &&
-        surname.trim() != '' &&
-        mail.trim() != '' &&
+        firstname.trim() != '' &&
+        lastname.trim() != '' &&
+        email.trim() != '' &&
         nickname.trim() != '' &&
         pwd.trim() != ''
     ) {
@@ -89,13 +92,13 @@ $("#send").click((e) => {
             type: 'POST',
             data: {
                 choice: 'envoyer',
-                name,
-                surname,
-                birthdate,
-                mail,
+                firstname,
+                lastname,
+                //birthdate,
+                email,
                 nickname,
-                pwd,
-                id,
+                pwd
+                //id
             },
             dataType: 'json',
             success: (res, status) => {
