@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Fist Empire</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <h2>Ajout de personnage :</h2>
+        <form enctype="multipart/form-data">
+            <div>
+                <label for="lastname">Nom du personnage :</label>
+                <input type="text" name="lastname" id="lastname">
+            </div>
+            <hr>
+            <div>
+                <label for="firstname">Prenom du personnage :</label>
+                <input type="text" name="firstname" id="firstname">
+            </div>
+            <hr>
+            <div>
+                <label for="gender">Sexe du personnage :</label>
+                <input type="text" name="gender" id="gender" maxlength="3">
+            </div>
+            <hr>
+            <div>
+                <label for="age">Age du personnage :</label>
+                <p>Mettre à 0 si l'age est inconnu</p>
+                <input type="number" name="age" id="age" min="0">
+            </div>
+            <hr>
+            <div>
+                <label for="desc">Description du personnage :</label>
+                <textarea name="desc" id="desc" cols="20" rows="4"></textarea>
+            </div>
+            <div>
+                <label for="picture">Photo du personnage :</label>
+                <input type="file" name="picture" id="picture">
+            </div>
+            <input type="submit" value="Creer" id="create">
+            <h4 id="result"></h4>
+        </form>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="addCharacter.js"></script>
+</body>
+
+</html>
