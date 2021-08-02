@@ -33,16 +33,40 @@ $("input:submit").click((e) => {
         processData: false,
         success: (res, status) => {
             if (res.success) {
-                $("#status").html("Upload réussie!");
+                $("#status").html(res.msg);
+                console.log(res.msg);
             } else {
                 $("#status").css("color", "red");
-                $("#status").html("Fichier au mauvais format. Veuillez réessayer.");
+                $("#status").html(res.msg);
             }
         }
     })
 })
 
-$("a").click((e) => {
+$("#add").click((e) => {
     e.preventDefault();
     $("input").css("display", "block");
 })
+
+$("#logOut").click((e) => {
+    e.preventDefault();
+    $.ajax({
+        url: 'gallery.php',
+        type: 'GET',
+        data: {},
+        dataType: 'json',
+        success: (res, status) => {
+            if (res.success) {
+                localStorage.removeItem('user');
+                window.location.replace('../Index/index.html');
+                $("main").append(html);
+            } else {
+                alert("ERREUR!!!!!!");
+            }
+        }
+    })
+})
+
+if (localStorage.getItem('user')) {
+    $("#logOut").show();
+} else $("#logOut").hide();

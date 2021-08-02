@@ -11,7 +11,19 @@
 
 <body>
     <header>
+        <div>
+            <h4><a href="../News/newspage.html">News</a></h4>
+            <h4><a href="../Gallery/gallery.html">Gallerie</a></h4>
+            <h4><a href="../Jukebox/jukebox.html">Jukebox</a></h4>
+            <h4><a href="../Lore/lore.html">Lore</a></h4>
 
+        </div>
+        <div>
+            <h4>
+                <a id='logOut' href="#" onclick="return false">Déconnexion</a>
+            </h4>
+            <h4><a href="../Profile/profile.html">Profil</a></h4>
+        </div>
     </header>
     <main>
         <h2>Informations du Profil:</h2>
@@ -20,12 +32,14 @@
 
         </div>
         <button id="modif">Modifier les infos</button>
+        <button id="admin"></button>
         <div id="prenom">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
                 <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
                 <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
               </svg>
             <label for="name">Prenom :</label>
+            <p id="fn"></p>
 
         </div>
         <br>
@@ -36,6 +50,7 @@
                 <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
               </svg>
             <label for="surname">Nom de famille :</label>
+            <p id="ln"></p>
 
         </div>
         <br>
@@ -53,12 +68,14 @@
         <div id="mail">
             <img width="20px" src="https://img2.freepng.fr/20180511/rce/kisspng-email-computer-icons-symbol-icon-design-5af5e6c2cc6774.6579996315260648348372.jpg">
             <label for="email">Adresse mail :</label>
+            <p id="ml"></p>
         </div>
         <br>
         <hr>
         <div id="pseudo">
-            <img width="20px" src="https://www.pngix.com/pngfile/middle/148-1480582_tekken-mishima-zaibatsu-logo-hd-png-download.png">
+            <img width="20px" src="https://tekkenmods.com/dist/img/logo-lg.png">
             <label for="nickname">Pseudo :</label>
+            <p id="nn"></p>
         </div>
         <br>
         <hr>

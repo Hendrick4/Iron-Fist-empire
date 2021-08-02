@@ -1,8 +1,7 @@
 <?php
 
-require_once('connect.php');
-require_once('utils.php');
-//?require_once('../fonctions.php');
+require_once('../connect.php');
+require_once('../utils.php');
 $verif = true;
 $infos = ['firstname','lastname','birthdate','email','nickname','password'];
 foreach($infos as $info) {
@@ -39,5 +38,4 @@ $secuPWD = mysqli_real_escape_string($db, $method['password']);
 $pwd = password_hash($secuPWD, PASSWORD_DEFAULT);
 $sql = "INSERT INTO users(firstname, lastname, birthdate, email, nickname, pwd) VALUES ('$secuFName','$secuLName','$secuBDate','$secuMail', '$secuPseudo', '{$pwd}')";
 $res = $db->query($sql);
-//!$_SESSION['user_tag'] = 
 echo json_encode(["success" => true]);

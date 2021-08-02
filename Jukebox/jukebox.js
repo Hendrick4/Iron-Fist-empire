@@ -60,3 +60,26 @@ $.ajax({
         }
     }
 })
+
+$("#logOut").click((e) => {
+    e.preventDefault();
+    $.ajax({
+        url: 'jukebox.php',
+        type: 'GET',
+        data: {},
+        dataType: 'json',
+        success: (res, status) => {
+            if (res.success) {
+                localStorage.removeItem('user');
+                window.location.replace('../Index/index.html');
+                $("main").append(html);
+            } else {
+                alert("ERREUR!!!!!!");
+            }
+        }
+    })
+})
+
+if (localStorage.getItem('user')) {
+    $("#logOut").show();
+} else $("#logOut").hide();

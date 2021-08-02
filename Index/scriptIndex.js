@@ -5,7 +5,6 @@ $("#connect").click((e) => {
         "<input type='text' name='pseudo' id='n_name'>" +
         "<label for='pwd'>Mot de passe:</label>" +
         "<input type='password' name='pwd' id='pwd'>" +
-        //! "<input type='submit' id='send'>" +
         "</form>";
     $("form").append(form);
     $("#send").css("display", "block");
@@ -29,8 +28,10 @@ $("#send").click((e) => {
             dataType: 'json',
             success: (res, status) => {
                 if (res.success) {
+                    localStorage.setItem('user', JSON.stringify(res.user));
+                    JSON.parse(localStorage.getItem('user'));
                     $("#check").html("Connexion réussie! redirection vers le site....");
-                    window.location.replace('newspage.html');
+                    window.location.replace('../News/newspage.html');
                 } else {
                     $("#check").css("color", "darkred");
                     $("#check").html("Identifiant ou mot de passe incorrect.");

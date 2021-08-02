@@ -1,8 +1,8 @@
 <?php
 
-require_once('connect.php');
-require_once('utils.php');
-require_once('../fonctions.php');
+require_once('../connect.php');
+require_once('../utils.php');
+require_once('../../fonctions.php');
 
 
 switch($method['table']){

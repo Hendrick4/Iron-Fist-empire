@@ -1,10 +1,9 @@
 <?php
 session_start();
 
-require_once('connect.php');
-require_once('../fonctions.php');
-require_once('utils.php');
-//!$datas = ['firstname','lastname','nickname','email','pwd'];
+require_once('../connect.php');
+require_once('../../fonctions.php');
+require_once('../utils.php');
 
 switch($method['choice']){
     case 'envoyer':

@@ -11,12 +11,24 @@
 
 <body>
     <header>
+        <div>
+            <h4><a href="../News/newspage.html">News</a></h4>
+            <h4><a href="../Gallery/gallery.html">Gallerie</a></h4>
+            <h4><a href="../Jukebox/jukebox.html">Jukebox</a></h4>
+            <h4><a href="../Lore/lore.html">Lore</a></h4>
 
+        </div>
+        <div>
+            <h4>
+                <a id='logOut' href="#" onclick="return false">Déconnexion</a>
+            </h4>
+            <h4><a href="../Profile/profile.html">Profil</a></h4>
+        </div>
     </header>
     <main>
         <h2>Gallerie</h2>
         <p>Un recueil des meilleurs artworks, photos officielles & fanarts de l'univers Tekken</p>
-        <h5><a href="/" onclick="return false;">Ajouter une image :</a></h5>
+        <h5><a id="add" href="/" onclick="return false;">Ajouter une image :</a></h5>
         <form enctype="multipart/form-data">
             <input type="file" name="file" id="file" style="display: none;">
             <input type="submit" value="Uploader" id="send" style="display: none;">

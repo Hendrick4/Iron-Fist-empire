@@ -4,6 +4,26 @@ let k = 0;
 let l = 0;
 let m = 0;
 
+$.ajax({
+    url: 'profile.php',
+    type: 'GET',
+    data: {
+        choice: 'afficher',
+    },
+    dataType: 'json',
+    success: (res, status) => {
+        let profil = '';
+        if (res.success) {
+            $("#fn").text(res.user.firstname);
+            $("#ln").text(res.user.lastname);
+            $("#nn").text(res.user.nickname);
+            $("#ml").text(res.user.email);
+            $("#birthdate").html(res.user.birthdate);
+            $("#profile").append(profil);
+        }
+    }
+})
+
 $("#modif").click((e) => {
     e.preventDefault();
     $("#send").css("display", "block");
@@ -12,17 +32,19 @@ $("#modif").click((e) => {
         type: 'GET',
         data: {
             choice: 'afficher',
-            //!id
         },
         dataType: 'json',
         success: (res, status) => {
             let profil = '';
             if (res.success) {
+                $("#fn").hide();
+                $("#ln").hide();
+                $("#nn").hide();
+                $("#ml").hide();
                 $("#firstname").val(res.user.firstname);
                 $("#lastname").val(res.user.lastname);
                 $("#nickname").val(res.user.nickname);
                 $("#email").val(res.user.email);
-                //!$("#pwd").val(res.user.pwd);
                 $("#birthdate").html(res.user.birthdate);
                 profil = "<img src='" + res.user.profilePic + "'>" +
                     "<h4>" + res.user.firstname + " " + res.user.lastname + "</h4>";
@@ -94,11 +116,9 @@ $("#send").click((e) => {
                 choice: 'envoyer',
                 firstname,
                 lastname,
-                //birthdate,
                 email,
                 nickname,
                 pwd
-                //id
             },
             dataType: 'json',
             success: (res, status) => {
@@ -109,3 +129,5 @@ $("#send").click((e) => {
         })
     }
 })
+
+if ()

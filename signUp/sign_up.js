@@ -32,7 +32,7 @@ $("input:submit").click((e) => {
                 if (res.success) {
                     $("#warn").css('color', 'forestgreen');
                     $("#warn").html("Inscription terminée!");
-                    window.location.replace("index.html");
+                    window.location.replace("../Index/index.html");
                 } else {
                     $("#warn").css('color', 'darkred');
                     $("#warn").html("Inscription impossible.... Veuillez réessayer ulterieurement");
