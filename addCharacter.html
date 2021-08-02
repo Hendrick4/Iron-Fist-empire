@@ -11,7 +11,16 @@
 
 <body>
     <header>
+        <div>
+            <h4><a href="newspage.html">News</a></h4>
+            <h4><a href="gallery.html">Gallerie</a></h4>
+            <h4><a href="jukebox.html">Jukebox</a></h4>
+            <h4><a href="lore.html">Lore</a></h4>
 
+        </div>
+        <div>
+            <h4><a href="profile.html">Profil</a></h4>
+        </div>
     </header>
     <main>
         <h2>Ajout de personnage :</h2>
@@ -56,8 +65,10 @@
         </form>
         <div id="opus">
             <a href="#" onclick="return false;" id="opusInfo">Ajouter un opus</a>
-            <input type="submit" value="Ajouter opus" id="createOpus" style="display: none;">
-            <p id="warning"></p>
+            <form enctype="multipart/form-data" id="opusData">
+                <input type="submit" value="Ajouter opus" id="createOpus" style="display: none;">
+                <p id="warning"></p>
+            </form>
         </div>
     </main>
     <footer>

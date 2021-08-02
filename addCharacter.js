@@ -5,9 +5,11 @@ $("#map").click((e) => {
     if (h <= 1) {
         let map = "<label for='mapName'>Nom de la map :</label>" +
             "<input type='text' id='mapName'>" +
+            "<label for='mapOpus'>Opus d'apparition :</label>" +
+            "<input type='number' id='mapOpus'>" +
             "<label for='mapMedia'>Aperçu de la map :</label>" +
             "<input type='file' id='mapMedia'>";
-        $("#mapInfo").append(map);
+        $("#mapInfo").append(map); -
         $("#createMap").css("display", "block");
     }
 })
@@ -18,7 +20,8 @@ $("#opusInfo").click((e) => {
     i++;
     if (i <= 1) {
         let opus = "<label>Nom de l'opus :</label>" +
-            "<input type='text' id='opusName'>";
+            "<input type='text' id='opusName'>" +
+            "<input type='file' id='opusCover'>";
         $("#opus").append(opus);
         $("#createOpus").css("display", "block");
     }
@@ -50,10 +53,10 @@ $("#create").click((e) => {
         processData: false,
         success: (res, status) => {
             if (res.success) {
-                $("#result").html("Creation du personnage reussie!");
+                $("#result").html(res.msg);
             } else {
                 $("#result").css("color", "crimson");
-                $("#result").html("Echec de la creation du personnage");
+                $("#result").html(res.msg);
             }
         }
     })
@@ -64,7 +67,9 @@ $("#createMap").click((e) => {
     const fd = new FormData();
     const files = $("#mapMedia")[0].files;
     const mapname = $("#mapName").val();
+    const mapOpus = $("#mapOpus").val();
 
+    fd.append('mapOpus', mapOpus);
     fd.append('mapName', mapname);
     fd.append('mapMedia', files[0]);
     fd.append('column', 'maps');
@@ -89,21 +94,27 @@ $("#createMap").click((e) => {
 $("#createOpus").click((e) => {
     e.preventDefault();
 
+    const fd = new FormData();
+    const files = $("#opusCover")[0].files;
     const opusName = $("#opusName").val();
+
+    fd.append('opusCover', files[0]);
+    fd.append('opusName', opusName);
+    fd.append('column', 'opus');
+
+
 
     $.ajax({
         url: 'addCharacter.php',
         type: 'POST',
-        data: {
-            column: 'opus',
-            opusName
-        },
-        dataType: 'json',
-        success: (res, success) => {
+        data: fd,
+        contentType: false,
+        processData: false,
+        success: (res, status) => {
             if (res.success) {
                 $("#warning").html("Ajout d'opus reussi!");
             } else {
-                $("#warning").css("color", "crimson");
+                $("#warn").css("color", "crimson");
                 $("#warning").html("Echec de l'ajout d'opus....");
             }
         }
