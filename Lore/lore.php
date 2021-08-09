@@ -3,6 +3,7 @@
 require_once('../connect.php');
 require_once('../utils.php');
 require_once('../../fonctions.php');
+session_start();
 
 if(isset($_GET['id']) && $_GET['id'] != 0){
     $sql = $db->query("SELECT a.*, m.chemin_media FROM articles a

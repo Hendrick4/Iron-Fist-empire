@@ -51,7 +51,7 @@ $("#add").click((e) => {
 $("#logOut").click((e) => {
     e.preventDefault();
     $.ajax({
-        url: 'gallery.php',
+        url: '../logout.php',
         type: 'GET',
         data: {},
         dataType: 'json',

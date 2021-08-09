@@ -21,7 +21,7 @@ $.ajax({
 $("#logOut").click((e) => {
     e.preventDefault();
     $.ajax({
-        url: 'news.php',
+        url: '../logout.php',
         type: 'GET',
         data: {},
         dataType: 'json',
@@ -40,3 +40,8 @@ $("#logOut").click((e) => {
 if (localStorage.getItem('user')) {
     $("#logOut").show();
 } else $("#logOut").hide();
+
+const role = JSON.parse(localStorage.getItem('user')).is_admin;
+if (role == 0) {
+    $("#add").hide();
+} else $("#add").show();
