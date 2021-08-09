@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Fist Empire</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h4><a href="../News/newspage.html">News</a></h4>
+            <h4><a href="../Gallery/gallery.html">Gallerie</a></h4>
+            <h4><a href="../Jukebox/jukebox.html">Jukebox</a></h4>
+            <h4><a href="../Lore/lore.html">Lore</a></h4>
+
+        </div>
+        <div>
+            <h4>
+                <a id='logOut' href="#" onclick="return false">Déconnexion</a>
+            </h4>
+            <h4><a href="../Profile/profile.html">Profil</a></h4>
+        </div>
+    </header>
+    <main>
+        <h2>Modération du site</h2>
+        <section>
+            <h3>Remplissage du site :</h3>
+            <ul>
+                <li>
+                    <a href="../addCharacter.html">Ajouter un personnage :</a>
+                </li>
+                <li>
+                    <a href="../Gallery/gallery.html">Ajouter une image a la gallerie :</a>
+                </li>
+                <li>
+                    <a href="../addCharacter.html">Ajouter un opus :</a>
+                </li>
+                <li>
+                    <a href="../addost.html">Ajouter une OST :</a>
+                </li>
+                <li>
+                    <a href="../addCharacter.html">Ajouter une map :</a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3>Altération de données :</h3>
+            <label>Element :</label>
+            <select name="table" id="table">
+                <option value="null"></option>
+                <option value="articles">Article</option>
+                <option value="medias">Médias</option>
+                <option value="ost">OST</option>
+                <option value="maps">Maps</option>
+                <option value="characters">Personnages</option>
+                <option value="opus">Jeux</option>
+            </select>
+            <button id="display">Afficher</button>
+            <ol id="element"></ol>
+
+        </section>
+        <section>
+            <h3>Liste des utilisateurs :</h3>
+            <table id="users">
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Pseudo</th>
+            </table>
+
+        </section>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script src="admin.js"></script>
+</body>
+
+</html>
