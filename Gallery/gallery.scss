@@ -1,0 +1,74 @@
+.logo {
+    width: 300px;
+    justify-content: center;
+}
+
+#add {
+    color: whitesmoke;
+    border: double 2px blue;
+    border-radius: 35px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1%;
+}
+
+body {
+    background-image: url('../assets/img/infiniteAzure.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0% 10% !important;
+    a {
+        color: darkslateblue;
+        text-decoration: none !important;
+        &:hover {
+            color: slateblue;
+        }
+    }
+    header {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 2% 3%;
+        border: ridge rgb(50, 50, 50) 5px;
+        border-radius: 0px 0px 15px 15px;
+        align-content: center;
+        div {
+            display: flex !important;
+            align-items: center;
+            &:last-child {
+                justify-content: flex-start;
+                flex-direction: row;
+                h5 {
+                    &:first-child {
+                        color: darkred;
+                        border-radius: 15px;
+                        //border: outset 3px rgb(233, 5, 40);
+                    }
+                }
+            }
+            h5 {
+                background-color: rgba(0, 0, 0, 0.7);
+                padding: 1%;
+                border-radius: 15px;
+                border: outset 3px rgb(75, 50, 233);
+            }
+        }
+    }
+    main {
+        padding: 2% 5%;
+        color: silver;
+        background-color: rgba(0, 0, 0, 0.9) !important;
+        border: solid slateblue 4px;
+        border-radius: 10px 10px 10px 10px;
+        overflow: auto;
+        img {
+            width: 150px !important;
+            height: 150px !important;
+        }
+        div {
+            margin-top: 2%;
+            border-radius: 15px;
+            border: solid silver 2px;
+            overflow: hidden;
+            width: fit-content;
+        }
+    }
+}

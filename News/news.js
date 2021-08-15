@@ -8,8 +8,8 @@ $.ajax({
         if (res.success) {
             res.articles.forEach(article => {
                 html += "<div id='tr-" + article.id_article + "'>" +
-                    "<a href='lore.html?id=" + article.id_article + "'><img src='" + article.chemin_media + "'></a>" +
-                    "<a href='lore.html?id=" + article.id_article + "'><h3>" + article.article_name + "</a></h3>" +
+                    "<a href='../Lore/lore.html?id=" + article.id_article + "'><img src='" + article.chemin_media + "'></a>" +
+                    "<a href='../Lore/lore.html?id=" + article.id_article + "'><h3>" + article.article_name + "</a></h3>" +
                     "<p>" + article.article_snippet + "</p>" +
                     "</div>";
             })

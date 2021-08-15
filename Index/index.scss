@@ -1,0 +1,72 @@
+body {
+    background-image: url('../assets/img/infiniteAzure.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0% 10% !important;
+    p {
+        font-size: larger;
+        color: snow;
+    }
+    a {
+        color: crimson;
+        text-decoration: none;
+        font-size: larger;
+        &:hover {
+            color: red;
+        }
+    }
+    header {
+        background-color: rgba(0, 0, 0, 0.8);
+        background-image: url('../assets/img/KunimitsuIIbanner.jpg');
+        background-size: cover;
+        label {
+            color: whitesmoke;
+        }
+        div {
+            display: flex;
+            padding: 2%;
+            align-content: center;
+            justify-content: center;
+            flex-direction: row-reverse;
+            border: double rgba(snow, 0.8) 5px;
+            border-radius: 15px;
+            overflow: hidden;
+            div {
+                border: none;
+                background-color: rgba(0, 0, 0, 0.4);
+                &:first-child {
+                    border-radius: 0px 15px 15px 0px;
+                }
+                &:last-child {
+                    margin-left: 500px;
+                    border-radius: 15px 0px 0px 15px;
+                }
+            }
+        }
+    }
+    main {
+        display: flex;
+        section {
+            display: flex;
+            width: 70% !important;
+            padding-top: 5%;
+            margin-left: 12%;
+            div {
+                border-radius: 15px;
+                &:last-child {
+                    background-color: rgba(0, 0, 0, 0.8);
+                    border: double silver 2px;
+                    color: silver;
+                    h5 {
+                        color: firebrick;
+                    }
+                }
+            }
+        }
+    }
+    footer {
+        background-color: rgba(0, 0, 0, 0.9);
+        display: inline;
+    }
+}

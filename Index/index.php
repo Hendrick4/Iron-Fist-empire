@@ -20,13 +20,14 @@ if(isset(
             $_SESSION['user_tag'] = $user['id'];
             $_SESSION['user_status'] = $user['is_admin'];
             unset($user['pwd']);
-            unset($user['is_admin']);
             echo json_encode(["success"=>true,"user"=>$user]);
     }
 } else {
     $_SESSION['log_in'] = false;
     echo json_encode(["success"=>false]);
 }
+
+
 
 
 ?>
