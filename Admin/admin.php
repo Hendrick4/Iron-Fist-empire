@@ -72,7 +72,7 @@ switch($method['request']){
         break;
 
     case "select_users":
-        $sql = $db->query("SELECT firstname,lastname,nickname,id FROM users");
+        $sql = $db->query("SELECT firstname,lastname,nickname,id FROM users WHERE is_admin = 0");
         $users = resultAsArray($sql);
         echo json_encode(["success"=>true, "users"=>$users]);
         break;
