@@ -1,6 +1,7 @@
 <?php
 
-require_once('connect.php');
+require_once('../connect.php');
+require_once('../../fonctions.php');
 session_start();
 
 $requete = $db->query("SELECT * FROM opus");
@@ -9,11 +10,16 @@ $games = resultAsArray($requete);
 echo json_encode(["success"=>true, "games"=>$games]);
 
 
-if(isset($_POST['title'],$_POST['content'],$_POST['snippet'])){
-    $res= $db->query("INSERT INTO articles(article_name,article_content,article_snippet,user_id) VALUES ('{$_POST['title']}','{$_POST['content']}', '{$_POST['snippet']}', '{$_SESSION['user_tag']}')");
+if(isset($_POST['title'],$_POST['content'],$_POST['snippet'],$_POST['opus'])&& !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['snippet'])){
+    $secuTitle = mysqli_real_escape_string($db, $_POST['title']);
+    $secuContent = mysqli_real_escape_string($db, $_POST['content']);
+    $secuSnippet = mysqli_real_escape_string($db, $_POST['snippet']);
+
+    $res= $db->query("INSERT INTO articles(article_name,article_content,article_snippet,id_opus,user_id) VALUES ('$secuTitle','$secuContent', '$secuSnippet', {$_POST['opus']} , {$_SESSION['user_tag']})");
     echo json_encode(["success"=>true, "msg"=>"Succes de l'upload de l'article."]);
 }
 $id_article = $db->insert_id;
+
 if(isset($_FILES['file']['name'])) {
     $fileName = $_FILES['file']['name'];
 

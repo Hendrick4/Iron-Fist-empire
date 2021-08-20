@@ -1,19 +1,3 @@
-let h = 0;
-$("#map").click((e) => {
-    e.preventDefault();
-    h++;
-    if (h <= 1) {
-        let map = "<label for='mapName'>Nom de la map :</label>" +
-            "<input type='text' id='mapName'>" +
-            "<label for='mapOpus'>Opus d'apparition :</label>" +
-            "<input type='number' id='mapOpus'>" +
-            "<label for='mapMedia'>Aperçu de la map :</label>" +
-            "<input type='file' id='mapMedia'>";
-        $("#mapInfo").append(map); -
-        $("#createMap").css("display", "block");
-    }
-})
-
 let i = 0;
 $("#opusInfo").click((e) => {
     e.preventDefault();
@@ -62,34 +46,7 @@ $("#create").click((e) => {
     })
 })
 
-$("#createMap").click((e) => {
-    e.preventDefault();
-    const fd = new FormData();
-    const files = $("#mapMedia")[0].files;
-    const mapname = $("#mapName").val();
-    const mapOpus = $("#mapOpus").val();
 
-    fd.append('mapOpus', mapOpus);
-    fd.append('mapName', mapname);
-    fd.append('mapMedia', files[0]);
-    fd.append('column', 'maps');
-
-    $.ajax({
-        url: 'addCharacter.php',
-        type: 'POST',
-        data: fd,
-        contentType: false,
-        processData: false,
-        success: (res, status) => {
-            if (res.success) {
-                $("#warn").html("Creation de la map reussie!");
-            } else {
-                $("#warn").css("color", "crimson");
-                $("#warn").html("Echec de la creation de la map");
-            }
-        }
-    })
-})
 
 $("#createOpus").click((e) => {
     e.preventDefault();
@@ -120,3 +77,28 @@ $("#createOpus").click((e) => {
         }
     })
 })
+
+$("#logOut").click((e) => {
+    e.preventDefault();
+    $.ajax({
+        url: '../logout.php',
+        type: 'GET',
+        data: {},
+        dataType: 'json',
+        success: (res, status) => {
+            if (res.success) {
+                localStorage.removeItem('user');
+                window.location.replace('../Index/index.html');
+                $("main").append(html);
+            } else {
+                alert("ERREUR!!!!!!");
+            }
+        }
+    })
+})
+
+
+const role = JSON.parse(localStorage.getItem('user')).is_admin;
+if (role == 0) {
+    $("body").hide();
+} else $("body").show();

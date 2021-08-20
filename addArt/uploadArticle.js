@@ -38,13 +38,13 @@ $("#file-upload-button").click((e) => {
     const content = $("#content").val();
     const title = $("#title").val();
     const snippet = $("#snippet").val();
+    const opus = $("#opus").val();
 
     fd.append('file', files[0]);
     fd.append('title', title);
     fd.append('content', content);
     fd.append('snippet', snippet);
-    //const td = new FormData();
-    //td.append
+    fd.append('opus', opus);
 
     $.ajax({
         url: 'uploadArticle.php',
@@ -54,10 +54,10 @@ $("#file-upload-button").click((e) => {
         processData: false,
         success: (res, status) => {
             if (res.success) {
-                $("#status").html("Upload réussie!");
+                $("#status").html(res.msg);
             } else {
                 $("#status").css("color", "red");
-                $("#status").html("Fichier au mauvais format. Veuillez réessayer.");
+                $("#status").html(res.msg);
             }
         }
     })

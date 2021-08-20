@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Fist Empire</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/addArt.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</head>
+
+<body class="container">
+    <header class="row">
+        <div class="col-md-4">
+            <h5 class="col-md-auto"><a href="../News/newspage.html">News</a></h5>
+            <h5 class="col-md-auto"><a href="../Gallery/gallery.html">Gallerie</a></h5>
+            <h5 class="col-md-auto"><a href="../Jukebox/jukebox.html">Jukebox</a></h5>
+            <h5 class="col-md-auto"><a href="../Lore/lore.html">Lore</a></h5>
+
+        </div>
+        <div class="col-md-4">
+            <a href="../Index/index.html"><img src="../assets/img/tekken-logo.png" alt="Tekken logo" class="logo"></a>
+            <h5 class="col-md-auto">
+                <a id='logOut' href="#" onclick="return false">Déconnexion</a>
+            </h5>
+            <h5 class="col-md-auto"><a href="../Profile/profile.html">Profil</a></h5>
+        </div>
+    </header>
+    <main>
+        <form method="post">
+            <div>
+                <label for="title">Titre de l'article :</label>
+                <input type="text" name="title" id="title" maxlength="45">
+            </div>
+            <div>
+                <label>Opus :</label>
+                <select id="opus">
+                    <option value="0"></option>
+                </select>
+            </div>
+            <div>
+                <label for="content">Contenu de l'article :</label>
+                <textarea name="content" id="content" cols="40" rows="5"></textarea>
+            </div>
+            <div>
+                <label for="snippet">Aperçu de l'article :</label>
+                <textarea name="snippet" id="snippet" cols="20" rows="3" maxlength="150"></textarea>
+            </div>
+
+            <form method="post" enctype="multipart/form-data">
+                <label for="media">Ajouter des médias</label>
+                <p>Formats acceptés: JPG,JPEG,PNG,GIF</p>
+                <input type="file" name="file" id="file">
+                <button id="add"><b>+</b></button>
+                <input type="submit" value="Uploader article" id="file-upload-button">
+                <p id="limit"></p>
+                <p id="status"></p>
+            </form>
+        </form>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="uploadArticle.js"></script>
+</body>
+
+</html>

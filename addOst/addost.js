@@ -40,3 +40,28 @@ $("#add").click((e) => {
         }
     })
 })
+
+$("#logOut").click((e) => {
+    e.preventDefault();
+    $.ajax({
+        url: '../logout.php',
+        type: 'GET',
+        data: {},
+        dataType: 'json',
+        success: (res, status) => {
+            if (res.success) {
+                localStorage.removeItem('user');
+                window.location.replace('../Index/index.html');
+                $("main").append(html);
+            } else {
+                alert("ERREUR!!!!!!");
+            }
+        }
+    })
+})
+
+
+const role = JSON.parse(localStorage.getItem('user')).is_admin;
+if (role == 0) {
+    $("body").hide();
+} else $("body").show();

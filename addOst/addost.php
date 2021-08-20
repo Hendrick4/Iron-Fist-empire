@@ -1,8 +1,9 @@
 <?php
 
-require_once('connect.php');
-require_once('../fonctions.php');
-require_once('utils.php');
+require_once('../connect.php');
+require_once('../../fonctions.php');
+require_once('../utils.php');
+session_start();
 
 switch($method['table']){
     case 'opus':
