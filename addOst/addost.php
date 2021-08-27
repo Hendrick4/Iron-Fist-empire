@@ -5,6 +5,10 @@ require_once('../../fonctions.php');
 require_once('../utils.php');
 session_start();
 
+if(!isset($_SESSION['user_rank']) || $_SESSION['user_rank']==0) {
+    die();
+}
+
 switch($method['table']){
     case 'opus':
         $sql = $db->query("SELECT * FROM opus");

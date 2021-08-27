@@ -1,7 +1,9 @@
 $.ajax({
     url: 'addMap.php',
     type: 'GET',
-    data: {},
+    data: {
+        choice: 'afficher'
+    },
     dataType: 'json',
     success: (res) => {
         let jeu = '';
@@ -24,7 +26,7 @@ $("#createMap").click((e) => {
     fd.append('mapOpus', mapOpus);
     fd.append('mapName', mapname);
     fd.append('mapMedia', files[0]);
-    fd.append('column', 'maps');
+    fd.append('choice', 'envoi');
 
     $.ajax({
         url: 'addMap.php',
@@ -32,12 +34,12 @@ $("#createMap").click((e) => {
         data: fd,
         contentType: false,
         processData: false,
-        success: (res, status) => {
+        success: (res) => {
             if (res.success) {
-                $("#warn").html("Creation de la map reussie!");
+                $("#warn").html(res.msg);
             } else {
                 $("#warn").css("color", "crimson");
-                $("#warn").html("Echec de la creation de la map");
+                $("#warn").html(res.msg);
             }
         }
     })

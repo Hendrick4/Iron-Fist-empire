@@ -8,8 +8,10 @@ $requete = $db->query("SELECT * FROM opus");
 $games = resultAsArray($requete);
 
 echo json_encode(["success"=>true, "games"=>$games]);
-
-
+print_r($_SESSION);
+if($_SESSION['log_in'] == false) {
+    die();
+}
 if(isset($_POST['title'],$_POST['content'],$_POST['snippet'],$_POST['opus'])&& !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['snippet'])){
     $secuTitle = mysqli_real_escape_string($db, $_POST['title']);
     $secuContent = mysqli_real_escape_string($db, $_POST['content']);
@@ -19,7 +21,6 @@ if(isset($_POST['title'],$_POST['content'],$_POST['snippet'],$_POST['opus'])&& !
     echo json_encode(["success"=>true, "msg"=>"Succes de l'upload de l'article."]);
 }
 $id_article = $db->insert_id;
-
 if(isset($_FILES['file']['name'])) {
     $fileName = $_FILES['file']['name'];
 
