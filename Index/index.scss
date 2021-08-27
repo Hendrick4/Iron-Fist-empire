@@ -2,6 +2,7 @@ body {
     background-image: url('../assets/img/infiniteAzure.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-clip: border-box;
     margin: 0;
     padding: 0% 10% !important;
     p {
@@ -20,6 +21,10 @@ body {
         background-color: rgba(0, 0, 0, 0.8);
         background-image: url('../assets/img/KunimitsuIIbanner.jpg');
         background-size: cover;
+        input {
+            background-color: darkslateblue;
+            color: silver;
+        }
         label {
             color: whitesmoke;
         }
@@ -27,7 +32,6 @@ body {
             display: flex;
             padding: 2%;
             align-content: center;
-            justify-content: center;
             flex-direction: row-reverse;
             border: double rgba(snow, 0.8) 5px;
             border-radius: 15px;
@@ -39,7 +43,6 @@ body {
                     border-radius: 0px 15px 15px 0px;
                 }
                 &:last-child {
-                    margin-left: 500px;
                     border-radius: 15px 0px 0px 15px;
                 }
             }
@@ -52,6 +55,7 @@ body {
             width: 70% !important;
             padding-top: 5%;
             margin-left: 12%;
+            padding-bottom: 5%;
             div {
                 border-radius: 15px;
                 &:last-child {
@@ -62,11 +66,18 @@ body {
                         color: firebrick;
                     }
                 }
+                img {
+                    height: 34rem !important;
+                    width: 60rem !important;
+                }
             }
         }
     }
     footer {
-        background-color: rgba(0, 0, 0, 0.9);
-        display: inline;
+        padding: 2%;
+        background-color: rgba(0, 0, 0, 0.4);
+        font-size: small;
+        width: 100%;
+        align-items: center;
     }
 }

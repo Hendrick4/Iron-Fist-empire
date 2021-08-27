@@ -1,6 +1,13 @@
 .logo {
-    width: 300px;
+    width: 20vw !important;
     justify-content: center;
+}
+
+#logOut {
+    color: darkred;
+    &:hover {
+        color: red;
+    }
 }
 
 #add {
@@ -60,8 +67,8 @@ body {
         border-radius: 10px 10px 10px 10px;
         overflow: auto;
         img {
-            width: 150px !important;
-            height: 150px !important;
+            max-width: 200px !important;
+            //height: 150px !important;
         }
         div {
             margin-top: 2%;

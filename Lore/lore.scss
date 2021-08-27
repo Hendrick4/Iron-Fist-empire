@@ -1,10 +1,23 @@
 .logo {
-    width: 300px;
+    width: 20vw !important;
     justify-content: center;
 }
 
 #logOut {
     color: darkred;
+}
+
+#pic {
+    h1 {
+        color: firebrick;
+        float: right;
+        align-self: center;
+    }
+    h3 {
+        color: darkred;
+        font-size: smaller;
+        float: right;
+    }
 }
 
 body {
@@ -60,14 +73,15 @@ body {
         background-color: rgba(0, 0, 0, 0.9) !important;
         border: double slateblue 4px;
         border-radius: 10px 10px 10px 10px;
-        h1 {
-            color: firebrick;
-        }
-        h3 {
-            color: darkred;
+        img {
+            display: flex;
+            height: 200px !important;
+            width: 200px !important;
+            float: left;
         }
         p {
             color: silver !important;
+            padding-top: 45vh;
         }
     }
 }
