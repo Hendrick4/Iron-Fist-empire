@@ -24,25 +24,37 @@
         </div>
         <div class="col-md-4">
             <a href="../Index/index.html"><img src="../assets/img/tekken-logo.png" alt="Tekken logo" class="logo"></a>
-            <h5 class="col">
-                <a id='logOut' href="#" onclick="return false">Déconnexion</a>
-            </h5>
-            <h5 class="col"><a href="../Profile/profile.html">Profil</a></h5>
+            <div id="userDiv">
+                <h5 class="col">
+                    <a id='logOut' href="#" onclick="return false">Déconnexion</a>
+                </h5>
+                <h5 class="col">
+                    <a href="../Profile/profile.html">Profil</a>
+                </h5>
+            </div>
         </div>
     </header>
     <main>
-        <div>
-            <h1 id="list">Liste de nos articles :</h1>
+        <div id="list">
+            <h1>Liste de nos articles :</h1>
             <table>
                 <th> Opus : </th>
-                <th></th>
+                <th>Article :</th>
             </table>
+
+        </div>
+        <div id="perso">
+            <h2>Liste des personnages :</h2>
+            <ul id="chara">
+            </ul>
+
+        </div>
+        <div id="pic">
             <h1></h1>
             <h3></h3>
         </div>
-        <ul></ul>
         <p></p>
-        <a href="addCharacter.html" id="add">Ajouter un personnage</a>
+        <a href="../addChara/addCharacter.html" id="add">Ajouter un personnage</a>
     </main>
     <footer></footer>
     <script src="lore.js"></script>

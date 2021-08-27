@@ -1,19 +1,18 @@
-let i = 0;
 $("#connect").click((e) => {
-    i++;
+    $("#connect").hide();
     e.preventDefault();
-    if (i <= 1) {
-        const form = "<form>" +
-            "<label for='login' >Pseudo:</label>" +
-            "<input type='text' name='pseudo' id='n_name'>" +
-            "<label for='pwd'>Mot de passe:</label>" +
-            "<input type='password' name='pwd' id='pwd'>" +
-            "</form>";
-        $("form").append(form);
-        $("#send").css("display", "block");
-    }
+    const form = "<form>" +
+        "<label for='login' >Pseudo:</label>" +
+        "<input type='text' name='pseudo' id='n_name'>" +
+        "<label for='pwd'>Mot de passe:</label>" +
+        "<input type='password' name='pwd' id='pwd'>" +
+        "</form>";
+    $("form").append(form);
+    $("#send").css("display", "block");
 });
+
 $("#send").click((e) => {
+
     e.preventDefault();
     const pseudo = $("#n_name").val();
     const pwd = $("#pwd").val();

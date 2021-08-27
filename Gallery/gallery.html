@@ -24,10 +24,14 @@
         </div>
         <div class="col-md-4">
             <a href="../Index/index.html"><img src="../assets/img/tekken-logo.png" alt="Tekken logo" class="logo"></a>
-            <h5 class="col">
-                <a id='logOut' href="#" onclick="return false">Déconnexion</a>
-            </h5>
-            <h5 class="col"><a href="../Profile/profile.html">Profil</a></h5>
+            <div id="userDiv">
+                <h5 class="col">
+                    <a id='logOut' href="#" onclick="return false">Déconnexion</a>
+                </h5>
+                <h5 class="col">
+                    <a href="../Profile/profile.html">Profil</a>
+                </h5>
+            </div>
         </div>
     </header>
     <main>
@@ -35,6 +39,8 @@
         <p>Un recueil des meilleurs artworks, photos officielles & fanarts de l'univers Tekken</p>
         <h5><a id="add" href="/" onclick="return false;">Ajouter une image</a></h5>
         <form enctype="multipart/form-data">
+            <label for="mediaName" style="display: none;">Nom du fichier:</label>
+            <input type="text" id="mediaName" style="display: none;">
             <input type="file" name="file" id="file" style="display: none;">
             <input type="submit" value="Uploader" id="send" style="display: none;">
             <h6 id="status"></h6>

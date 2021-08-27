@@ -1,3 +1,7 @@
+$("#opusData").click((e) => {
+    e.preventDefault();
+})
+
 function changeOST(id) {
     $.ajax({
         url: 'jukebox.php',
@@ -11,7 +15,7 @@ function changeOST(id) {
             let lien = '';
             if (res.success) {
                 lien = res.ost.ost_link
-                const player = $("#player1").attr("src", lien);
+                $("#player1").attr("src", lien);
             }
         }
     })
@@ -30,14 +34,15 @@ function showOst(id) {
             let ost = "";
             if (res.success) {
                 res.sons.forEach(son => {
-                    ost += "<li id='" + son.ost_id + "'>" +
-                        "<a href='#' onclick='changeOST( " + son.ost_id + ")'>" + son.ost_name + "</a>" +
+                    ost += "<li id='" + son.ost_id + "' class='col-md-auto'>" +
+                        "<a href='#' onclick='changeOST(" + son.ost_id + ");'>" + son.ost_name + "</a>" +
                         "</li>";
                 })
                 $("ul").html(ost);
             }
         }
     })
+    return false;
 }
 
 
@@ -50,7 +55,7 @@ $.ajax({
         let opus = '';
         if (res.success) {
             res.titres.forEach(titre => {
-                    opus += "<div id='jeu-" + titre.id_opus + "'>" +
+                    opus += "<div id='jeu-" + titre.id_opus + "' class='col'>" +
                         "<img src='" + titre.opus_cover + "'>" +
                         "<a href='#' onclick='showOst(" + titre.id_opus + ")'>" + titre.opus_name + "</a>" +
                         "</div>";
@@ -82,7 +87,14 @@ $("#logOut").click((e) => {
 
 if (localStorage.getItem('user')) {
     $("#logOut").show();
-} else $("#logOut").hide();
+    $("#add").show();
+} else {
+    $("#logOut").hide();
+    let sign = "<h5 class='col-md-auto'><a style='color:powderblue;' href='../signUp/sign_up.html'>S'inscrire</a></h5>";
+    $("#userDiv").css("color", "silver !important");
+    $("#userDiv").html(sign);
+    $("#add").hide();
+}
 
 const role = JSON.parse(localStorage.getItem('user')).is_admin;
 if (role == 0) {

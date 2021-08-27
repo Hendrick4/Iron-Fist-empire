@@ -13,6 +13,7 @@ function delUser(id, user) {
             success: (res) => {
                 if (res.success) {
                     $("#user-" + id).remove();
+                    $("#btn-" + id).remove();
                     alert("Utilisateur supprime!");
                 } else alert("Erreur lors de la suppression de l'utilisateur....");
             }
@@ -35,6 +36,7 @@ function delArticle(id, article) {
             success: (res) => {
                 if (res.success) {
                     $("#article-" + id).remove();
+                    $("#btn-" + id).remove();
                     alert("article supprime!");
                 } else alert("Erreur lors de la suppression de l'article....");
             }
@@ -57,6 +59,7 @@ function delIMG(id, media) {
             success: (res) => {
                 if (res.success) {
                     $("#media-" + id).remove();
+                    $("#btn-" + id).remove();
                     alert("media supprime!");
                 } else alert("Erreur lors de la suppression du media....");
             }
@@ -79,6 +82,7 @@ function delOST(id, ost) {
             success: (res) => {
                 if (res.success) {
                     $("#piste-" + id).remove();
+                    $("#btn-" + id).remove();
                     alert("Piste supprimee!");
                 } else alert("Erreur lors de la suppression de la piste....");
             }
@@ -101,6 +105,7 @@ function delMap(id, map) {
             success: (res) => {
                 if (res.success) {
                     $("#map-" + id).remove();
+                    $("#btn-" + id).remove();
                     alert("Map supprimee!");
                 } else alert("Erreur lors de la suppression de la map....");
             }
@@ -123,6 +128,7 @@ function delChara(id, perso) {
             success: (res) => {
                 if (res.success) {
                     $("#perso-" + id).remove();
+                    $("#btn-" + id).remove();
                     alert("Personnage supprime!");
                 } else alert("Erreur lors de la suppression du personnage....");
             }
@@ -145,6 +151,7 @@ function delGame(id, game) {
             success: (res) => {
                 if (res.success) {
                     $("#jeu-" + id).remove();
+                    $("#btn-" + id).remove();
                     alert("Jeu supprime!");
                 } else alert("Erreur lors de la suppression du jeu....");
             }
@@ -167,7 +174,7 @@ $("#display").click((e) => {
                     if (res.success) {
                         res.articles.forEach(article => {
                             liste += "<li id='article-" + article.id_article + "'>" + article.article_name + "</li>" +
-                                "<button onclick='return delArticle(" + article.id_article + ", \"" + article.article_name + "\")'>Supprimer</button>";
+                                "<button id='btn-" + article.id_article + "' onclick='return delArticle(" + article.id_article + ", \"" + article.article_name + "\")'>Supprimer</button>";
                         })
                         $("#element").html(liste);
                     }
@@ -186,7 +193,7 @@ $("#display").click((e) => {
                     if (res.success) {
                         res.medias.forEach(media => {
                             liste += "<li id='media-" + media.id_media + "'>" + media.nom_media + "</li>" +
-                                "<button onclick='return delIMG(" + media.id_media + ", \"" + media.nom_media + "\")'>Supprimer</button>";
+                                "<button id='btn-" + media.id_media + "' onclick='return delIMG(" + media.id_media + ", \"" + media.nom_media + "\")'>Supprimer</button>";
                         })
                         $("#element").html(liste);
                     }
@@ -205,7 +212,7 @@ $("#display").click((e) => {
                     if (res.success) {
                         res.ost.forEach(piste => {
                             liste += "<li id='piste-" + piste.ost_id + "'>" + piste.ost_name + "</li>" +
-                                "<button onclick='return delOST(" + piste.ost_id + ", \"" + piste.ost_name + "\")'>Supprimer</button>";
+                                "<button id='btn-" + piste.ost_id + "' onclick='return delOST(" + piste.ost_id + ", \"" + piste.ost_name + "\")'>Supprimer</button>";
                         })
                         $("#element").html(liste);
                     }
@@ -224,7 +231,7 @@ $("#display").click((e) => {
                     if (res.success) {
                         res.maps.forEach(map => {
                             liste += "<li id='map-" + map.map_id + "'>" + map.map_name + "</li>" +
-                                "<button onclick='return delMap(" + map.map_id + ", \"" + map.map_name + "\")'>Supprimer</button>";
+                                "<button id='btn-" + map.map_id + "' onclick='return delMap(" + map.map_id + ", \"" + map.map_name + "\")'>Supprimer</button>";
                         })
                         $("#element").html(liste);
                     }
@@ -244,7 +251,7 @@ $("#display").click((e) => {
                         res.characters.forEach(character => {
                             liste +=
                                 "<li id='perso-" + character.chara_id + "'>" + character.chara_lastname + " " + character.chara_firstname + "</li>" +
-                                "<button onclick='return delChara(" + character.chara_id + ", \"" + character.chara_firstname + "\")'>Supprimer</button>";
+                                "<button id='btn-" + character.chara_id + "' onclick='return delChara(" + character.chara_id + ", \"" + character.chara_firstname + "\")'>Supprimer</button>";
                         })
                         $("#element").html(liste);
                     }
@@ -264,7 +271,7 @@ $("#display").click((e) => {
                         res.opus.forEach(jeu => {
                             liste +=
                                 "<li id='jeu-" + jeu.id_opus + "'>" + jeu.opus_name + "</li>" +
-                                "<button onclick='return delGame(" + jeu.id_opus + ", \"" + jeu.opus_name + "\")'>Supprimer</button>";
+                                "<button id='btn-" + jeu.id_opus + "' onclick='return delGame(" + jeu.id_opus + ", \"" + jeu.opus_name + "\")'>Supprimer</button>";
                         })
                         $("#element").html(liste);
                     }

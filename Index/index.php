@@ -18,7 +18,7 @@ if(isset(
         if($pwdCheck){
             $_SESSION['log_in'] = true;
             $_SESSION['user_tag'] = $user['id'];
-            $_SESSION['user_status'] = $user['is_admin'];
+            $_SESSION['user_rank'] = $user['is_admin'];
             unset($user['pwd']);
             echo json_encode(["success"=>true,"user"=>$user]);
     }

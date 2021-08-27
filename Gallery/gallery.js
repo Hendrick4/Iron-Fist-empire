@@ -8,7 +8,7 @@ $.ajax({
         if (res.success) {
             res.medias.forEach(media => {
                 images += "<div id='div-" + media.id_media + "'>" +
-                    "<h4>" + media.nom_media + "</h4>" +
+                    "<h4 class='text-center'>" + media.nom_media + "</h4>" +
                     "<img src='" + media.chemin_media + "'>" +
                     "</div>";
             })
@@ -22,8 +22,10 @@ $("input:submit").click((e) => {
 
     const fd = new FormData();
     const files = $("#file")[0].files;
+    const mediaName = $("#mediaName").val();
 
     fd.append('file', files[0]);
+    fd.append('mediaName', mediaName);
 
     $.ajax({
         url: 'gallery.php',
@@ -42,10 +44,9 @@ $("input:submit").click((e) => {
         }
     })
 })
-
 $("#add").click((e) => {
     e.preventDefault();
-    $("input").css("display", "block");
+    $("input, #mediaName, label").css("display", "block");
 })
 
 $("#logOut").click((e) => {
@@ -69,4 +70,11 @@ $("#logOut").click((e) => {
 
 if (localStorage.getItem('user')) {
     $("#logOut").show();
-} else $("#logOut").hide();
+    $("#add").show();
+} else {
+    $("#logOut").hide();
+    let sign = "<h5 class='col-md-auto'><a style='color:powderblue;' href='../signUp/sign_up.html'>S'inscrire</a></h5>";
+    $("#userDiv").css("color", "silver !important");
+    $("#userDiv").html(sign);
+    $("#add").hide();
+}

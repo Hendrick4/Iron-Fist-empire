@@ -3,6 +3,11 @@
 require_once('../connect.php');
 require_once('../utils.php');
 require('../../fonctions.php');
+session_start();
+
+if(!isset($_SESSION['user_rank']) || $_SESSION['user_rank']==0) {
+    die();
+}
 
 switch($method['request']){
     case 'select_articles':

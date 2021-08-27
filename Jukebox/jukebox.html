@@ -16,33 +16,34 @@
 <body class="container">
     <header class="row">
         <div class="col-md-4">
-            <h5 class="col"><a href="../News/newspage.html">News</a></h5>
-            <h5 class="col"><a href="../Gallery/gallery.html">Gallerie</a></h5>
-            <h5 class="col"><a href="../Jukebox/jukebox.html">Jukebox</a></h5>
-            <h5 class="col"><a href="../Lore/lore.html">Lore</a></h5>
+            <h5 class="col-md-auto"><a href="../News/newspage.html">News</a></h5>
+            <h5 class="col-md-auto"><a href="../Gallery/gallery.html">Gallerie</a></h5>
+            <h5 class="col-md-auto"><a href="../Jukebox/jukebox.html">Jukebox</a></h5>
+            <h5 class="col-md-auto"><a href="../Lore/lore.html">Lore</a></h5>
 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" id="user">
             <a href="../Index/index.html"><img src="../assets/img/tekken-logo.png" alt="Tekken logo" class="logo"></a>
-            <h5 class="col">
-                <a id='logOut' href="#" onclick="return false">Déconnexion</a>
-            </h5>
-            <h5 class="col"><a href="../Profile/profile.html">Profil</a></h5>
+            <div id="userDiv">
+                <h5 class="col">
+                    <a id='logOut' href="#" onclick="return false">Déconnexion</a>
+                </h5>
+                <h5 class="col">
+                    <a href="../Profile/profile.html">Profil</a>
+                </h5>
+            </div>
         </div>
     </header>
-    <main>
+    <main class="container">
         <h1 class="text-center">Jukebox</h1>
         <iframe id="player1" width="70%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633941694&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
         </iframe>
-        <section id="opusData">
+        <aside id="opusData" class="col-md-auto">
 
-        </section>
-        <ul id="list"></ul>
+        </aside>
+        <ul id="list" class="row"></ul>
         <section>
-            <a id="add" href="../addost.html">Ajouter des OST :</a>
-        </section>
-        <section>
-            <a href="playlist.html">Créer une playlist d'OST:</a>
+            <a id="add" href="../addOst/addost.html">Ajouter des OST :</a>
         </section>
     </main>
     <footer>
