@@ -1,4 +1,7 @@
 assets
+css
 connect.php
 utils.php
 logout.php
+mailer.php
+vendor
